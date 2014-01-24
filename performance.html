@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Knockout Morris</title>
+
+	<link rel="stylesheet" href="bower_components/morris.js/morris.css">
+
+	<script src="bower_components/jquery/jquery.min.js"></script>
+	<script src="bower_components/raphael/raphael-min.js"></script>
+	<script src="bower_components/morris.js/morris.min.js"></script>
+
+	<script src="bower_components/knockout.js/knockout.js"></script>
+	<script src="knockout-morris.js"></script>
+</head>
+<body>
+
+<div id="stage"></div>
+
+<script type="x-template" id="template">
+	<div id="morris" data-bind="morris: {type: 'Line', data: data, xkey: 'year', ykeys: ['value'], labels: ['Value']}"></div>
+</script>
+
+<script>
+	var times = 100,
+		stage = document.getElementById('stage'),
+		template = document.getElementById('template').innerHTML;
+
+	var run = function() {
+		stage.innerHTML = template;
+		if (!times--) return
+		var model = {
+			data: ko.observable(),
+		};
+		var data = [];
+		for(var i=2000; i<2050; i++)
+			data.push({ year: i, value: Math.random(100) });
+		model.data(data);
+		ko.applyBindings(model, document.getElementById('morris'));
+		setTimeout(run, 100);
+	};
+
+	setTimeout(run, 100);
+</script>
+
+</body>
+</html>

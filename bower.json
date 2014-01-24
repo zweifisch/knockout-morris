@@ -1,0 +1,27 @@
+{
+  "name": "knockout-morris",
+  "version": "0.0.1",
+  "authors": [
+    "Feng Zhou <zf.pascal@gmail.com>"
+  ],
+  "description": "morris handler for knockoutjs",
+  "main": "knockout-morris.js",
+  "keywords": [
+    "knockout",
+    "morris",
+    "knockout-morris"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "knockout.js": "~3.0.0",
+    "morris.js": "~0.4.3"
+  },
+  "homepage": "https://github.com/zweifisch/knockout-morris"
+}
