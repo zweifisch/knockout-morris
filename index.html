@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Knockout Morris</title>
+
+	<link rel="stylesheet" href="bower_components/morris.js/morris.css">
+
+	<script src="bower_components/jquery/jquery.min.js"></script>
+	<script src="bower_components/raphael/raphael-min.js"></script>
+	<script src="bower_components/morris.js/morris.min.js"></script>
+
+	<script src="bower_components/knockout.js/knockout.js"></script>
+	<script src="knockout-morris.js"></script>
+</head>
+<body>
+
+<div data-bind="morris: {type: 'Line', data: line, xkey: 'year', ykeys: ['value'], labels: ['Value']}"
+	style="width: 500px; float: left"></div>
+
+<div data-bind="morris: {type: 'Area', data: area, xkey: 'y', ykeys: ['a','b'], labels: ['Series A', 'Series B']}"
+	style="width: 500px; float: left"></div>
+
+<div data-bind="morris: {type: 'Donut', data: donut}"
+	style="width: 500px; float: left"></div>
+
+<div data-bind="morris: {type: 'Bar', data: bar, xkey: 'y', ykeys: ['a','b'], labels: ['Series A', 'Series B']}"
+	style="width: 500px; float: left"></div>
+
+<script>
+	var model = {
+		line: ko.observable(),
+		donut: ko.observable(),
+		bar: ko.observable(),
+		area: ko.observable()
+	};
+	model.line([
+		{ year: '2008', value: 20 },
+		{ year: '2009', value: 10 },
+		{ year: '2010', value: 5 },
+		{ year: '2011', value: 5 },
+		{ year: '2012', value: 20 }
+	]);
+	model.donut([
+		{label: "Download Sales", value: 12},
+		{label: "In-Store Sales", value: 30},
+		{label: "Mail-Order Sales", value: 20}
+	]);
+	model.bar([
+		{ y: '2006', a: 100, b: 90 },
+		{ y: '2007', a: 75,  b: 65 },
+		{ y: '2008', a: 50,  b: 40 },
+		{ y: '2009', a: 75,  b: 65 },
+		{ y: '2010', a: 50,  b: 40 },
+		{ y: '2011', a: 75,  b: 65 },
+		{ y: '2012', a: 100, b: 90 }
+	]);
+	model.area([
+		{ y: '2006', a: 100, b: 90 },
+		{ y: '2007', a: 75,  b: 65 },
+		{ y: '2008', a: 50,  b: 40 },
+		{ y: '2009', a: 75,  b: 65 },
+		{ y: '2010', a: 50,  b: 40 },
+		{ y: '2011', a: 75,  b: 65 },
+		{ y: '2012', a: 100, b: 90 }
+	]);
+	ko.applyBindings(model);
+</script>
+
+</body>
+</html>
