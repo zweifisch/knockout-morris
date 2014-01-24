@@ -21,3 +21,5 @@ model.line([
 ]);
 ko.applyBindings(model);
 ```
+
+[more charts](http://zweifisch.github.io/knockout-morris/)
